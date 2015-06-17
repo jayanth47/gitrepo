@@ -1,44 +1,41 @@
+
 <?xml version="1.1" encoding="UTF-8"?>
 <project name="Demo of build process" basedir="." default="package">
 
 	
 	<target name="clean" description="cleaning the workspace">
-		<delete dir="D:/practice/builds1"></delete>
+		<delete dir="builds1"></delete>
 	</target>
 	<target name="create" description="creating the file structure" depends="clean">
-		<mkdir dir="D:/practice/builds1/bin"></mkdir>
-		<mkdir dir="D:/practice/builds1/src"></mkdir>
-		<mkdir dir="D:/practice/builds1/conf"></mkdir>
-		<mkdir dir="D:/practice/builds1/lib"></mkdir>
-		<mkdir dir="D:/practice/builds1/log"></mkdir>
+		<mkdir dir="builds1/bin"></mkdir>
+		<mkdir dir="builds1/src"></mkdir>
+		<mkdir dir="builds1/conf"></mkdir>
+		<mkdir dir="builds1/lib"></mkdir>
+		<mkdir dir="builds1/log"></mkdir>
 	</target>
 	<target name="copy" description="copying java files to src" depends="create">
-		<copy todir="D:/practice/builds1/src">
-			<fileset dir="D:/java-files" casesensitive="yes">
+		<copy todir="builds1/src">
+			<fileset dir="java-files" casesensitive="yes">
 				<include name="*.java"></include>
 			</fileset>
 		</copy>
-
 		<copy todir="D:/practice/builds1/conf">
-			<fileset dir="D:/java-files" casesensitive="yes"> 
-
-		<copy todir="builds1/conf">
 			<fileset dir="java-files" casesensitive="yes"> 
-
 				<include name="*.txt"></include>
 			</fileset>
 		</copy>
 		<copy todir="D:/practice/builds1/log">
-			<fileset dir="D:/java-files" casesensitive="yes"> 
+			<fileset dir="java-files" casesensitive="yes"> 
 				<include name="*.properties"></include>
 			</fileset>
 		</copy>
 		
 	</target>
 	<target name="compile" description="compiling the java files" depends="copy">
-		<javac srcdir="D:/practice/builds1/src" destdir="D:/practice/builds2/bin" includeantruntime="false"></javac>
+		<javac srcdir="builds1/src" destdir="builds1/bin" includeantruntime="false"></javac>
 	</target>
 	<target name="package" description="packaging the binaries" depends="compile"> 
-		<jar destfile="D:/practice/builds1/lib/demobuildjava.jar" basedir="D:/practice/builds1"></jar>
+		<jar destfile="builds1/lib/demobuildjava.jar" basedir="builds1"></jar>
 	</target>
 </project>
+
