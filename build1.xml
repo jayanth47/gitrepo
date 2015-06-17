@@ -18,8 +18,13 @@
 				<include name="*.java"></include>
 			</fileset>
 		</copy>
+
 		<copy todir="D:/practice/builds1/conf">
 			<fileset dir="D:/java-files" casesensitive="yes"> 
+
+		<copy todir="builds1/conf">
+			<fileset dir="java-files" casesensitive="yes"> 
+
 				<include name="*.txt"></include>
 			</fileset>
 		</copy>
